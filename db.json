@@ -1,0 +1,24 @@
+{
+    "books":[
+        {
+            "id":"1",
+            "title":"ay terapisi",
+            "author":"mustafa ulusoy",
+            "publisher": "iletisim",
+            "price": 100,
+            "isbn":"80808-8-8",
+            "categoryId":"2"
+        }
+    ],
+    "categories":[
+        {
+            "id":"1",
+            "name":"roman"
+        },
+        {
+            "id":"2",
+            "name":"hikaye"
+        }
+    ]
+}
+
