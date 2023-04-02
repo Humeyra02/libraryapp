@@ -1,14 +1,23 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const allStates=useSelector(state=>state)
   console.log(allStates)
   return (
-    <div>
-      <h1>Library</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        
+        
+        <Route path="*" element={<NotFound/>}/>
+      {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
