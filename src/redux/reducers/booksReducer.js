@@ -8,6 +8,9 @@ const initialState={
     errorMessage: ""
 }
 
+// API tarafi ile iletisime gecicegimiz icin ayrintili baslangic state i yazdik
+
+
 const booksReducer=(state=initialState,action)=>{
     //ilk parantez ici kosul alanidir.
     switch (action.type) {

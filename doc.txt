@@ -46,3 +46,5 @@ NOTLAR:
     ->login/register sistemi nasıl işler, frontend tarafında nasıl yönetilir
     ->token ne demektir (jwt)
 
+
+HEADER SAYFA DUZENLEMEDE KALDIM. 02.04.23
