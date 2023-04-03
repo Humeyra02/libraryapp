@@ -1,7 +1,7 @@
 import actionTypes from "../actions/actionTypes";
 
 const initialState={
-    pending: false,
+    pending: true,
     success: false,
     categories: [],
     error: false,

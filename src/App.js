@@ -1,21 +1,70 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+//import axios from "axios";
+import api from "./api/api";
+import urls from "./api/urls";
+import actionTypes from "./redux/actions/actionTypes";
+import Loading from "./components/Loading";
+import Error from "./components/Error";
 
 function App() {
-  const allStates=useSelector(state=>state)
-  console.log(allStates)
+  const { booksState, categoriesState } = useSelector((state) => state)
+  const dispacth = useDispatch()
+  console.log(booksState);
+  console.log(categoriesState);
+
+  // get books ve get categories yapmamizin sebebi: uygulama ilk acilirken
+  // butun verileri state e yuklemek
+
+  // GET BOOKS 
+
+  useEffect(() => {
+    //axios.get("http://localhost:3004/books") - http://localhost:3004 bu kisim api nin icinde zaten tanimlandi. axios import etmemize gerek yok bu sayfada.
+
+    dispacth({ type: actionTypes.bookActions.GET_BOOKS_START })
+    api
+      .get(urls.books) // end point i de urls.books kismiyla vermis olduk.
+      .then(res => {
+        setTimeout(() => {
+          dispacth({ type: actionTypes.bookActions.GET_BOOKS_SUCCESS, payload: res.data })
+        }, 2000)
+      })
+      .catch(err => {
+        dispacth({ type: actionTypes.bookActions.GET_BOOKS_FAIL, payload: "kitaplari cekme islemi esnasinda hata olustu" })
+      })
+
+    //GET CATEGORIES
+
+    dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_START })
+    api
+      .get(urls.categories)
+      .then(res => {
+        setTimeout(() => {
+          dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS, payload: res.data })
+        }, 2000)
+      })
+      .catch(err => {
+        dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_FAIL, payload: "category bilgilerini cekerken bir hata olustu" })
+      })
+
+  }, []);
+  if (booksState.pending === true || categoriesState === true)
+    return <Loading />;
+  if( booksState.error === true || categoriesState.error === true )
+  return <Error/>;
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        
-        
-        <Route path="*" element={<NotFound/>}/>
-      {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}
+        <Route path="/" element={<Home />} />
+
+
+        <Route path="*" element={<NotFound />} />
+        {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}
       </Routes>
     </BrowserRouter>
   );
