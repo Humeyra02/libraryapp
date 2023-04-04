@@ -14,8 +14,6 @@ import Error from "./components/Error";
 function App() {
   const { booksState, categoriesState } = useSelector((state) => state)
   const dispacth = useDispatch()
-  console.log(booksState);
-  console.log(categoriesState);
 
   // get books ve get categories yapmamizin sebebi: uygulama ilk acilirken
   // butun verileri state e yuklemek
@@ -31,7 +29,7 @@ function App() {
       .then(res => {
         setTimeout(() => {
           dispacth({ type: actionTypes.bookActions.GET_BOOKS_SUCCESS, payload: res.data })
-        }, 2000)
+        }, 1000)
       })
       .catch(err => {
         dispacth({ type: actionTypes.bookActions.GET_BOOKS_FAIL, payload: "kitaplari cekme islemi esnasinda hata olustu" })
@@ -45,7 +43,7 @@ function App() {
       .then(res => {
         setTimeout(() => {
           dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS, payload: res.data })
-        }, 2000)
+        }, 1000)
       })
       .catch(err => {
         dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_FAIL, payload: "category bilgilerini cekerken bir hata olustu" })

@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import ListBooks from "../components/ListBooks";
 
-const Home=()=>{
-    return(
+const Home = () => {
+    return (
         <div>
-            <h1>
-                <Header/>
-                anasayfa
-            </h1>
+            <Header />
+            <ListBooks />
         </div>
     )
 }

@@ -8,6 +8,15 @@
             "price": 100,
             "isbn":"80808-8-8",
             "categoryId":"2"
+        },
+        {
+            "id":"2",
+            "title":"Dirilt Kalbini",
+            "author":"Nouman Ali Khan",
+            "publisher": "iletisim",
+            "price": 100,
+            "isbn":"80809208-8-8",
+            "categoryId":"1"
         }
     ],
     "categories":[

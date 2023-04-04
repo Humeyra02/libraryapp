@@ -5,7 +5,7 @@ const initialState={
     success: false,
     books: [],
     error: false,
-    errorMessage: ""
+    errorMessage: "" 
 }
 
 // API tarafi ile iletisime gecicegimiz icin ayrintili baslangic state i yazdik
@@ -22,7 +22,7 @@ const booksReducer=(state=initialState,action)=>{
     case actionTypes.bookActions.GET_BOOKS_SUCCESS:
         return{
             ...state,
-            pending:false,
+            pending:false, 
             success:true,
             error:false,
             books:action.payload
