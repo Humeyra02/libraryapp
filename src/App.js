@@ -12,7 +12,9 @@ import Loading from "./components/Loading";
 import Error from "./components/Error";
 
 function App() {
-  const { booksState, categoriesState } = useSelector((state) => state)
+  const { booksState, categoriesState } = useSelector(
+    (state) => state
+    )
   const dispacth = useDispatch()
 
   // get books ve get categories yapmamizin sebebi: uygulama ilk acilirken
@@ -40,21 +42,25 @@ function App() {
     dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_START })
     api
       .get(urls.categories)
-      .then(res => {
+      .then((res) => {
         setTimeout(() => {
-          dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS, payload: res.data })
+          dispacth({ 
+            type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS,
+             payload: res.data 
+            })
         }, 1000)
       })
-      .catch(err => {
-        dispacth({ type: actionTypes.categoryActions.GET_CATEGORIES_FAIL, payload: "category bilgilerini cekerken bir hata olustu" })
+      .catch((err) => {
+        dispacth({ 
+          type: actionTypes.categoryActions.GET_CATEGORIES_FAIL,
+          payload: "category bilgilerini cekerken bir hata olustu" })
       })
-
   }, []);
-  if (booksState.pending === true || categoriesState === true)
+  if (booksState.pending === true || categoriesState.pending === true)
     return <Loading />;
   if( booksState.error === true || categoriesState.error === true )
   return <Error/>;
-
+  
   return (
     <BrowserRouter>
       <Routes>

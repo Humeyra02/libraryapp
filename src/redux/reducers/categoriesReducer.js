@@ -19,7 +19,7 @@ const categoriesReducer=(state=initialState,action)=>{
             } 
         case actionTypes.categoryActions.GET_CATEGORIES_SUCCESS:
             return{
-                ...state,
+                ...state, 
                 pending: false,
                 success:true,
                 error: false,
