@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";  //state ler icin store a abone olduk
 import { upperFirstLetter, upperFirstLetter2 } from "../utils/functions";
+import Button from "./Button"
 
 const ListBooks = () => {
     const { booksState, categoriesState } = 
@@ -41,15 +42,9 @@ const ListBooks = () => {
                                                 <td>{upperFirstLetter(myCategory.name)}</td>
                                                 <td>
                                                     <div className="btn-group" role="group" >
-                                                        <button type="button" 
-                                                        className="btn btn-warning">
-                                                            Detay</button>
-                                                        <button type="button" 
-                                                        className="btn btn-danger">
-                                                            Sil</button>
-                                                        <button type="button" 
-                                                        className="btn btn-success">
-                                                            Guncelle</button>
+                                                        <Button className="btn-sm" text="detay" type="success"/>
+                                                        <Button className="btn-sm" text="sil" type="danger"/>
+                                                        <Button className="btn-sm" text="guncelle" type="warning"/>
                                                     </div>
                                                 </td>
                                             </tr>
