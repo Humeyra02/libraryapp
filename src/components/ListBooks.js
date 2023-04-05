@@ -4,6 +4,7 @@ import { upperFirstLetter, upperFirstLetter2 } from "../utils/functions";
 import Button from "./Button"
 
 const ListBooks = () => {
+    const {themeState}=useSelector(state=>state) // theme state i direkt asagida digerlerini yanina ekleyebilirim
     const { booksState, categoriesState } = 
     useSelector((state) => state)
     return (
@@ -19,7 +20,7 @@ const ListBooks = () => {
             }
             { booksState.books.length > 0 && (
                     <div>
-                        <table className="table table-success table-striped">
+                        <table className={`table table-success table-striped ${themeState === "light" ? ("table-light") : ("table-dark")}`}>
                             <thead>
                                 <tr>
                                     <th scope="col">Sira No</th>
@@ -34,7 +35,6 @@ const ListBooks = () => {
                                         const myCategory = categoriesState.categories.find(
                                             (item) => item.id === book.categoryId
                                             )
-                                            console.log(myCategory.name)
                                         return (
                                             <tr key={book.id}>
                                                 <th scope="row">{index + 1}</th>
@@ -42,9 +42,9 @@ const ListBooks = () => {
                                                 <td>{upperFirstLetter(myCategory.name)}</td>
                                                 <td>
                                                     <div className="btn-group" role="group" >
-                                                        <Button className="btn-sm" text="detay" type="success"/>
-                                                        <Button className="btn-sm" text="sil" type="danger"/>
-                                                        <Button className="btn-sm" text="guncelle" type="warning"/>
+                                                        <Button className="btn-sm" text="detay" type={themeState=== "light" ? "success" : "light"}/>
+                                                        <Button className="btn-sm" text="sil" type={themeState=== "light" ? "info" : "danger"}/>
+                                                        <Button className="btn-sm" text="guncelle" type={themeState=== "light" ? "warning" : "secondary"}/>
                                                     </div>
                                                 </td>
                                             </tr>

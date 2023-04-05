@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import AddBook from "./pages/AddBook";
 //import axios from "axios";
 import api from "./api/api";
 import urls from "./api/urls";
@@ -50,7 +50,7 @@ function App() {
             })
         }, 1000)
       })
-      .catch((err) => {
+      .catch((err) => { 
         dispacth({ 
           type: actionTypes.categoryActions.GET_CATEGORIES_FAIL,
           payload: "category bilgilerini cekerken bir hata olustu" })
@@ -65,7 +65,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/add-book" element={<AddBook/>}/>
 
         <Route path="*" element={<NotFound />} />
         {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}

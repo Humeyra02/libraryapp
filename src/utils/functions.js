@@ -2,7 +2,6 @@ export const upperFirstLetter=(sample="")=>{
     //parametre olarak gelen cumleyi bosluk 
     // ayracina gore kelimelere ayir.
     let words=sample.split(" ")
-    console.log(words);
 
     let newWords=[]
 
