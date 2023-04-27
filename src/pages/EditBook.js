@@ -1,62 +1,69 @@
-import React, { useState } from "react";
-import Header from "../components/Header";
-import { useDispatch, useSelector } from "react-redux";
-import { upperFirstLetter } from "../utils/functions";
-import api from "../api/api";
-import urls from "../api/urls";
-import actionTypes from "../redux/actions/actionTypes"; //dilekce konulari
-import { useNavigate } from "react-router-dom";
-import Modal from "../components/Modal";
+import { React, useState } from "react"
+import Header from "../components/Header"
+import { useParams,useNavigate } from "react-router-dom"
+import { useSelector,useDispatch } from "react-redux"
+import { upperFirstLetter } from "../utils/functions"
+import api from "../api/api"
+import urls from "../api/urls"
+import actionTypes from "../redux/actions/actionTypes"
 
-const AddBook = () => {
-    const { categoriesState } = useSelector((state) => state)
-
+const EditBook = () => {
+    
+    const { bookId } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const [openSuccessModal, setOpenSuccessModal] = useState(false)
-    const [formState, setFormState] = useState({
-        id: String(new Date().getTime()),
-        title: "",
-        author: "",
-        publisher: "",
-        price: "",
-        isbn: "",
-        categoryId: "empty"
+    const { booksState, categoriesState } = useSelector(state => state)
+    const myBook = booksState.books.find((item) => item.id === bookId)
+    
+    /*const [formState,setFormState]=useState({
+        id: myBook.id,
+        title: myBook.title ,
+        author: myBook.author,
+        publisher: myBook.publisher,
+        price: myBook.price,
+        isbn: myBook.isbn,
+        categoryId: myBook.categoryId
     })
-
+    */
+    const [formState, setFormState] = useState(myBook)
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        if (formState.categoryId === "empty") {
+        if (formState.categoryId === "empty") 
+        {
             alert("kategori alani zorunlu");
             return;
         }
-        if (formState.title === "") {
+        if (formState.title === "") 
+        {
             alert('kitap alani zorunlu');
             return;
         }
-        if (formState.author === "") {
+        if (formState.author === "") 
+        {
             alert('yazar alani zorunlu');
             return;
         }
+        /**api call */
 
-        api
-            .post(urls.books, formState)
-            .then((res) => {
-                dispatch(
-                    {
-                        type: actionTypes.bookActions.ADD_BOOK,
-                        payload: formState
-                    })
-                setOpenSuccessModal(true)
-            })
-            .catch(err => { })
+    api
+    .put(`${urls.books}/${bookId}`,formState)
+    .then((res)=>{
+        dispatch({
+            type:actionTypes.bookActions.EDIT_BOOK,
+            payload: formState,
+        })
+        navigate("/")
+    })
+    .catch((err)=>{})
     }
 
     return (
         <div>
             <Header />
+            <h1 className="d-flex justify-content-center"
+                style={{ color: "white", fontFamily: "sans-serif", backgroundColor: "purple" }}>EDIT THE BOOK</h1>
             <div className="container my-5 w-50">
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
@@ -176,17 +183,8 @@ const AddBook = () => {
                     </div>
                 </form>
             </div>
-            <Modal
-                title="successfull"
-                content="Added a book successfuly"
-                cancelButtonText="Return to home page"
-                cancelButtonType="success"
-                cancelButtonClick={() => navigate("/")}
-                // visible={true} bunu bir state baglamamiz lazim
-                visible={openSuccessModal}
-            />
         </div>
     )
 }
 
-export default AddBook
+export default EditBook

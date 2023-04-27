@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import actionTypes from "../redux/actions/actionTypes";
 import '../styles/general.css'
-import light from '../assets/icons8-light.gif'
-import night from '../assets/icons8-night.gif'
+import light from '../assets/giphy.gif'
+import night from '../assets/moon.gif'
 
 const Header = () => {
     const dispacth = useDispatch()
@@ -48,7 +48,7 @@ const Header = () => {
                                     type: actionTypes.themeActions.CHANGE_THEME,
                                     payload: "dark"
                                 })}
-                            className="btn btn-sm btn-secondary">
+                            className="btn btn-sm ">
                             <img style={{width:'20px', height:'20px',marginRight:'10px'}} src={night}></img>
                             <span>
                                 Dark
@@ -60,9 +60,9 @@ const Header = () => {
                                     type: actionTypes.themeActions.CHANGE_THEME,
                                     payload: "light"
                                 })}
-                            className="btn btn-sm btn-warning">
+                            className="btn btn-sm ">
                                 <img style={{width:'20px', height:'20px',marginRight:'10px'}} src={light}></img>
-                            <span>
+                            <span style={{color:"white"}}>
                                 Light
                             </span>
                         </button>)

@@ -1,6 +1,22 @@
+body{
+    Background-image: url(../assets/white-ga51c1d710_1920.jpg);
+    Background-size: cover;
+    Background-color: rgba(171, 159, 56, 0.57);
+}
+
 .headerBgDark{
     Background-color: black;
 }
 .headerBgLight{
-    Background-color: rgb(249, 116, 68);
+    Background-color: rgb(255, 196, 0);
+}
+.buttonPurple{
+    Background-color: rgb(122, 12, 122);
+    Outline: none;
+}
+.buttonOrangered{
+    Background-color: orangered;
+}
+.buttonGreen{
+    Background-color: rgba(10, 179, 10, 0.68) ;
 }

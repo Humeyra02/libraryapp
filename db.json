@@ -1,120 +1,48 @@
 {
   "books": [
     {
-      "id": "1",
-      "title": "ay terapisi",
-      "author": "mustafa ulusoy",
-      "publisher": "iletisim",
-      "price": 100,
-      "isbn": "80808-8-8",
+      "id": "1680955543920",
+      "title": "Ay Terapisi",
+      "author": "Mustafa Ulusoy",
+      "publisher": "Hay",
+      "price": "9",
+      "isbn": "xxxxxxxxxxxx",
       "categoryId": "2"
     },
     {
-      "id": "2",
-      "title": "Dirilt Kalbini",
-      "author": "Nouman Ali Khan",
-      "publisher": "iletisim",
-      "price": 100,
-      "isbn": "80809208-8-8",
-      "categoryId": "1"
+      "id": "1681050315113",
+      "title": "isik karanligi bogarken",
+      "author": "m. gulen",
+      "publisher": "sureyya",
+      "price": "18",
+      "isbn": "xxxxxxx",
+      "categoryId": "4"
     },
     {
-      "id": "1680702032565",
-      "title": "s",
-      "author": "w",
-      "publisher": "a",
+      "id": "1681050363285",
+      "title": "dirilt kalbini",
+      "author": "numan ali khan",
+      "publisher": "hay",
+      "price": "10",
+      "isbn": "xxxxxxxxx",
+      "categoryId": "3"
+    },
+    {
+      "id": "1682535654299",
+      "title": "nnnnn",
+      "author": "djpppmm",
+      "publisher": "dpppppp",
+      "price": "3888",
+      "isbn": "djjjjj",
+      "categoryId": "3"
+    },
+    {
+      "id": "1682621951909",
+      "title": "ew",
+      "author": "drerfrd",
+      "publisher": "frfr",
       "price": "3",
-      "isbn": "w",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680702407267",
-      "title": "e",
-      "author": "d",
-      "publisher": "e",
-      "price": "3",
-      "isbn": "2",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680706927363",
-      "title": "e",
-      "author": "e",
-      "publisher": "e",
-      "price": "3",
-      "isbn": "e",
-      "categoryId": "2"
-    },
-    {
-      "id": "1680706982403",
-      "title": "n",
-      "author": "m",
-      "publisher": "m",
-      "price": "9",
-      "isbn": "nn",
-      "categoryId": "2"
-    },
-    {
-      "id": "1680707519090",
-      "title": "j",
-      "author": "j",
-      "publisher": "n",
-      "price": "9",
-      "isbn": "j",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680707598175",
-      "title": "",
-      "author": "j",
-      "publisher": "m",
-      "price": "9",
-      "isbn": "m",
-      "categoryId": "2"
-    },
-    {
-      "id": "1680707638972",
-      "title": "m",
-      "author": "",
-      "publisher": "m",
-      "price": "9",
-      "isbn": "j",
-      "categoryId": "2"
-    },
-    {
-      "id": "1680707663115",
-      "title": " m",
-      "author": " ",
-      "publisher": "m",
-      "price": "9",
-      "isbn": "mk",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680707736210",
-      "title": "m",
-      "author": "j",
-      "publisher": "m",
-      "price": "0",
-      "isbn": "m",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680708655095",
-      "title": "h",
-      "author": "j",
-      "publisher": "j",
-      "price": "8",
-      "isbn": "j",
-      "categoryId": "1"
-    },
-    {
-      "id": "1680711220519",
-      "title": "9",
-      "author": "m",
-      "publisher": "m",
-      "price": "9",
-      "isbn": "m",
+      "isbn": "fsf",
       "categoryId": "2"
     }
   ],
@@ -126,6 +54,14 @@
     {
       "id": "2",
       "name": "hikaye"
+    },
+    {
+      "id": "3",
+      "name": "deneme"
+    },
+    {
+      "id": "4",
+      "name": "dini"
     }
   ]
 }

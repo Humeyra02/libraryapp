@@ -10,6 +10,9 @@ import urls from "./api/urls";
 import actionTypes from "./redux/actions/actionTypes";
 import Loading from "./components/Loading";
 import Error from "./components/Error";
+import BookDetail from "./pages/BookDetail";
+import EditBook from "./pages/EditBook";
+
 
 function App() {
   const { booksState, categoriesState } = useSelector(
@@ -66,8 +69,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add-book" element={<AddBook/>}/>
-
+        <Route path="/book-detail/:bookId" element={<BookDetail/>}/>
+        <Route path="/edit-book/:bookId" element={<EditBook/>}/>
         <Route path="*" element={<NotFound />} />
+        
         {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}
       </Routes>
     </BrowserRouter>
