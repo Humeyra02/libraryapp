@@ -61,14 +61,13 @@ const AddBook = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label
-                            style={{ color: "white" }}
                             htmlFor="title"
-                            className="form-label">
+                            className="form-label label">
                             Kitap Adi
                         </label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control input"
                             id="title"
                             placeholder="Ay Terapisi"
                             value={formState.title}
@@ -78,14 +77,14 @@ const AddBook = () => {
                     </div>
                     <div className="mb-3">
                         <label
-                            style={{ color: "white" }}
+
                             htmlFor="author"
-                            className="form-label">
+                            className="form-label label">
                             Yazar Adi
                         </label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control input"
                             id="author"
                             placeholder="Mustafa Ulusoy"
                             value={formState.author}
@@ -96,14 +95,13 @@ const AddBook = () => {
                     </div>
                     <div className="mb-3">
                         <label
-                            style={{ color: "white" }}
                             htmlFor="publisher"
-                            className="form-label">
+                            className="form-label label">
                             Yayin Evi
                         </label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control input"
                             id="publisher"
                             placeholder="Iletisim"
                             value={formState.publisher}
@@ -114,14 +112,13 @@ const AddBook = () => {
                     </div>
                     <div className="mb-3">
                         <label
-                            style={{ color: "white" }}
                             htmlFor="price"
-                            className="form-label">
+                            className="form-label label">
                             Price
                         </label>
                         <input
                             type="number"
-                            className="form-control"
+                            className="form-control input"
                             id="price"
                             placeholder="£7"
                             value={formState.price}
@@ -132,14 +129,13 @@ const AddBook = () => {
                     </div>
                     <div className="mb-3">
                         <label
-                            style={{ color: "white" }}
                             htmlFor="isbn"
-                            className="form-label">
+                            className="form-label label">
                             ISBN
                         </label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control input"
                             id="isbn"
                             placeholder="xxxxxxxx"
                             value={formState.isbn}

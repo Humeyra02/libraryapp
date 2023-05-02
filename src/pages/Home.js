@@ -20,7 +20,8 @@ const Home = () => {
                             <Button
                                 onClick={() => navigate("/add-book")}
                                 type={themeState === "light" ? "warning" : "secondary"}
-                                text="kitap ekle" />
+                                text="kitap ekle"
+                            />
                         </div>
                         <ListBooks />
                     </div>

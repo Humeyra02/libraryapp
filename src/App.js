@@ -12,6 +12,8 @@ import Loading from "./components/Loading";
 import Error from "./components/Error";
 import BookDetail from "./pages/BookDetail";
 import EditBook from "./pages/EditBook";
+import CategoriesHome from "./pages/CategoriesHome";
+import AddCategory from "./pages/AddCategory";
 
 
 function App() {
@@ -71,6 +73,8 @@ function App() {
         <Route path="/add-book" element={<AddBook/>}/>
         <Route path="/book-detail/:bookId" element={<BookDetail/>}/>
         <Route path="/edit-book/:bookId" element={<EditBook/>}/>
+        <Route path="/categories" element={<CategoriesHome/>}/>
+        <Route path="/add-category" element={<AddCategory/>}/>
         <Route path="*" element={<NotFound />} />
         
         {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}

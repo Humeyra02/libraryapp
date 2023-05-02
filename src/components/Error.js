@@ -10,7 +10,7 @@ const Error = () => {
             height: "100vh",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
 
         }}>
             <div className="alert alert-danger" role="alert">

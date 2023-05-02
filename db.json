@@ -4,9 +4,9 @@
       "id": "1680955543920",
       "title": "Ay Terapisi",
       "author": "Mustafa Ulusoy",
-      "publisher": "Hay",
+      "publisher": "",
       "price": "9",
-      "isbn": "xxxxxxxxxxxx",
+      "isbn": "0000000000",
       "categoryId": "2"
     },
     {
@@ -29,20 +29,20 @@
     },
     {
       "id": "1682535654299",
-      "title": "nnnnn",
-      "author": "djpppmm",
+      "title": "sadasda",
+      "author": "sdasd",
       "publisher": "dpppppp",
       "price": "3888",
-      "isbn": "djjjjj",
+      "isbn": "0000000000000",
       "categoryId": "3"
     },
     {
-      "id": "1682621951909",
-      "title": "ew",
-      "author": "drerfrd",
-      "publisher": "frfr",
+      "id": "1682964497214",
+      "title": "ddafda",
+      "author": "dsdadd",
+      "publisher": "sdas",
       "price": "3",
-      "isbn": "fsf",
+      "isbn": "eawa",
       "categoryId": "2"
     }
   ],

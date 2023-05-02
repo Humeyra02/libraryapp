@@ -1,8 +1,13 @@
 body{
-    Background-image: url(../assets/white-ga51c1d710_1920.jpg);
-    Background-size: cover;
-    Background-color: rgba(171, 159, 56, 0.57);
+    Background-image: url(../assets/hd-wallpaper-g4db1b4b88_1920.jpg);
+    Background-size: auto;
+    Background-color: rgba(246, 245, 235, 0.57);
 }
+
+/*.bg-image-category{
+    Background-image: url(../assets/hd-wallpaper-g4db1b4b88_1920.jpg);
+    Background-size: auto;
+}*/
 
 .headerBgDark{
     Background-color: black;
@@ -19,4 +24,21 @@ body{
 }
 .buttonGreen{
     Background-color: rgba(10, 179, 10, 0.68) ;
+}
+
+label{
+    Color:rgb(255, 255, 255);
+    Background-color:rgba(0, 0, 0, 0.589);
+    border-radius: 5px;
+    Padding: 0px 10px 0px 10px;
+    Width: 100px;
+}
+
+.input{
+    Background-color: rgba(157, 127, 255, 0.504);
+
+}
+
+table{
+    Font-size: 10px;
 }

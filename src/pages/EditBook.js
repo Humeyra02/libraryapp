@@ -1,21 +1,22 @@
-import { React, useState } from "react"
+import { React, useState, useRef } from "react"
 import Header from "../components/Header"
-import { useParams,useNavigate } from "react-router-dom"
-import { useSelector,useDispatch } from "react-redux"
+import { useParams, useNavigate } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 import { upperFirstLetter } from "../utils/functions"
 import api from "../api/api"
 import urls from "../api/urls"
 import actionTypes from "../redux/actions/actionTypes"
 
 const EditBook = () => {
-    
+    const titleRef = useRef()
+    const authorRef = useRef()
     const { bookId } = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const { booksState, categoriesState } = useSelector(state => state)
     const myBook = booksState.books.find((item) => item.id === bookId)
-    
+
     /*const [formState,setFormState]=useState({
         id: myBook.id,
         title: myBook.title ,
@@ -27,36 +28,42 @@ const EditBook = () => {
     })
     */
     const [formState, setFormState] = useState(myBook)
+
+    const [errorType, setErrorType] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        if (formState.categoryId === "empty") 
-        {
+        if (formState.categoryId === "empty") {
             alert("kategori alani zorunlu");
             return;
         }
-        if (formState.title === "") 
-        {
-            alert('kitap alani zorunlu');
+        if (formState.title === "") {
+            titleRef.current.style.display = 'block'
             return;
         }
-        if (formState.author === "") 
-        {
-            alert('yazar alani zorunlu');
+        if (formState.author === "") {
+            authorRef.current.style.display = 'block'
+            return;
+        }
+        if (formState.price === "") {
+            setErrorType("price")
+            setErrorMessage("Price is required!!")
             return;
         }
         /**api call */
 
-    api
-    .put(`${urls.books}/${bookId}`,formState)
-    .then((res)=>{
-        dispatch({
-            type:actionTypes.bookActions.EDIT_BOOK,
-            payload: formState,
-        })
-        navigate("/")
-    })
-    .catch((err)=>{})
+        api
+            .put(`${urls.books}/${bookId}`, formState)
+            .then((res) => {
+                dispatch({
+                    type: actionTypes.bookActions.EDIT_BOOK,
+                    payload: formState,
+                })
+                navigate("/")
+            })
+            .catch((err) => { })
     }
 
     return (
@@ -81,7 +88,9 @@ const EditBook = () => {
                             value={formState.title}
                             onChange={(event) =>
                                 setFormState({ ...formState, title: event.target.value })
-                            } />
+                            }
+                        />
+                        <p ref={titleRef} style={{ display: "none" }}><small className="bg-danger text-warning">This field is required!</small></p>
                     </div>
                     <div className="mb-3">
                         <label
@@ -100,6 +109,7 @@ const EditBook = () => {
                                 setFormState({ ...formState, author: event.target.value })
                             }
                         />
+                        <p ref={authorRef} style={{ display: "none" }}><small className="bg-danger text-warning">This field is required!</small></p>
                     </div>
                     <div className="mb-3">
                         <label
@@ -136,6 +146,13 @@ const EditBook = () => {
                                 setFormState({ ...formState, price: event.target.value })
                             }
                         />
+                        {errorType === "price" && (
+                            <p>
+                                <small className="bg-warning text-danger">
+                                    {errorMessage}
+                                </small>
+                            </p>
+                        )}
                     </div>
                     <div className="mb-3">
                         <label
