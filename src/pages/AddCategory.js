@@ -2,6 +2,11 @@ import { React, useState } from "react";
 import Header from "../components/Header";
 import { useSelector } from "react-redux";
 import { upperFirstLetter } from "../utils/functions";
+import api from "../api/api"
+import urls from "../api/urls"
+import { useDispatch } from "react-redux";
+import actionTypes from "../redux/actions/actionTypes";
+import { useNavigate } from "react-router-dom";
 
 /* truthy ve falsy
     truthy: true,dolu string, dolu obje
@@ -11,6 +16,9 @@ import { upperFirstLetter } from "../utils/functions";
 */
 
 const AddCategory = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const { categoriesState } = useSelector(state => state)
 
@@ -40,13 +48,12 @@ const AddCategory = () => {
                 upperFirstLetter(form.name.trim().replaceAll(" ", ""))
 
             )
-        console.log(hasCategory);
 
         /**if(hasCategory !== undefined){
             
         } 
-           if (hasCategory)
-           
+          = if (hasCategory)
+            
            ayni ifade
            */
 
@@ -59,10 +66,21 @@ const AddCategory = () => {
             }, 4000);
             return;
         }
+        /**api call */
+        api.post(urls.categories, form)
+            .then(res => {
+                dispatch({
+                    type: actionTypes.categoryActions.ADD_CATEGORY,
+                    payload: form
+                })
+                navigate("/categories")
+            })
+            .catch(err => { })
     }
     return (
         <div>
             <Header />
+            <div className="d-flex justify-content-center bg-danger"><h1>ADD CATEGORY PAGE</h1></div>
             <form onSubmit={handleSubmit}>
                 <div className="container my-5 w-50">
                     <div className="mb-3">
@@ -75,7 +93,7 @@ const AddCategory = () => {
                             type="text"
                             className="form-control input"
                             id="name"
-                            placeholder="ROMAN"
+                            placeholder="roman"
                             value={form.name}
                             onChange={(event) => setForm({ ...form, name: event.target.value })}
                         />

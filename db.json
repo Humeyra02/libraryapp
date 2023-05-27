@@ -28,22 +28,13 @@
       "categoryId": "3"
     },
     {
-      "id": "1682535654299",
-      "title": "sadasda",
-      "author": "sdasd",
-      "publisher": "dpppppp",
-      "price": "3888",
-      "isbn": "0000000000000",
-      "categoryId": "3"
-    },
-    {
-      "id": "1682964497214",
-      "title": "ddafda",
-      "author": "dsdadd",
-      "publisher": "sdas",
+      "id": "1683388593309",
+      "title": "Hayat Apartmani",
+      "author": "Mustafa Ulusoy",
+      "publisher": "asasd",
       "price": "3",
-      "isbn": "eawa",
-      "categoryId": "2"
+      "isbn": "xxxxxxxxxxxxxx",
+      "categoryId": "3"
     }
   ],
   "categories": [
@@ -62,6 +53,14 @@
     {
       "id": "4",
       "name": "dini"
+    },
+    {
+      "id": "1683036139743",
+      "name": "bilim"
+    },
+    {
+      "id": "1683388410068",
+      "name": "felsefe"
     }
   ]
 }

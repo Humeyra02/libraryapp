@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import ListCategories from "../components/ListCategories";
+import Logout from "../components/Logout";
 
 const CategoriesHome = () => {
     
@@ -10,7 +11,6 @@ const CategoriesHome = () => {
 
     return (
         <div className="bg-image-category">
-        
             <Header />
             <div className="container my-5">
                 <h1 className="bg-warning d-flex justify-content-center">CATEGORIES OF BOOKS</h1>
@@ -19,7 +19,7 @@ const CategoriesHome = () => {
                         <div className="d-flex justify-content-center p-2">
                             <Button
                                 onClick={() => navigate("/add-category")}
-                                type="secondary"
+                                type="warning"
                                 text="add a category"
                             />
                         </div>
@@ -27,6 +27,7 @@ const CategoriesHome = () => {
                 </div>
                 <ListCategories/>
             </div>
+        <Logout/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -14,12 +14,14 @@ import BookDetail from "./pages/BookDetail";
 import EditBook from "./pages/EditBook";
 import CategoriesHome from "./pages/CategoriesHome";
 import AddCategory from "./pages/AddCategory";
-
+import EditCategory from "./pages/EditCategory";
+import Login from "./pages/Login";
+import { Navigate } from "react-router-dom";
 
 function App() {
-  const { booksState, categoriesState } = useSelector(
+  const { booksState, categoriesState, loginState } = useSelector(
     (state) => state
-    )
+  )
   const dispacth = useDispatch()
 
   // get books ve get categories yapmamizin sebebi: uygulama ilk acilirken
@@ -49,36 +51,67 @@ function App() {
       .get(urls.categories)
       .then((res) => {
         setTimeout(() => {
-          dispacth({ 
+          dispacth({
             type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS,
-             payload: res.data 
-            })
+            payload: res.data
+          })
         }, 1000)
       })
-      .catch((err) => { 
-        dispacth({ 
+      .catch((err) => {
+        dispacth({
           type: actionTypes.categoryActions.GET_CATEGORIES_FAIL,
-          payload: "category bilgilerini cekerken bir hata olustu" })
+          payload: "category bilgilerini cekerken bir hata olustu"
+        })
       })
   }, []);
   if (booksState.pending === true || categoriesState.pending === true)
     return <Loading />;
-  if( booksState.error === true || categoriesState.error === true )
-  return <Error/>;
-  
+  if (booksState.error === true || categoriesState.error === true)
+    return <Error />;
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/add-book" element={<AddBook/>}/>
-        <Route path="/book-detail/:bookId" element={<BookDetail/>}/>
-        <Route path="/edit-book/:bookId" element={<EditBook/>}/>
-        <Route path="/categories" element={<CategoriesHome/>}/>
-        <Route path="/add-category" element={<AddCategory/>}/>
+
+        <Route
+          path="/"
+          element={loginState.success ? <Home /> : <Navigate to={"/login"} />} />
+
+        <Route
+          path="/add-book"
+          element={loginState.success ? <AddBook /> : <Navigate to={"/login"} />} />
+
+        <Route
+          path="/book-detail/:bookId"
+          element={loginState.success ? <BookDetail /> : <Navigate to={"/login"} />} />
+        <Route
+          path="/edit-book/:bookId"
+          element={loginState.success ? <EditBook /> : <Navigate to={"/login"} />} />
+        <Route
+          path="/categories"
+          element={loginState.success ? <CategoriesHome /> : <Navigate to={"/login"} />} />
+        <Route
+          path="/add-category"
+          element={loginState.success ? <AddCategory /> : <Navigate to={"/login"} />} />
+        <Route
+          path="/edit-category/:categoryId"
+          element={loginState.success ? <EditCategory /> : <Navigate to={"/login"} />} />
         <Route path="*" element={<NotFound />} />
-        
+        <Route path="/login" element={<Login />} />
         {/** yildiz isaretinin anlami hic bir pathe uymazsa bu yildizli path calissin demek ve yildizli path ise error sayfasi icin */}
       </Routes>
+
+      {/* 
+      // Routes un farkli yazimi !!!
+
+        yukarda routes component'u import etmeyi unutmuyoruz.
+
+        <Routes>
+        routes.map(route=>(
+          <Route path={router.name} element={route.element()}
+        ))
+      </Routes> */}
+
     </BrowserRouter>
   );
 }

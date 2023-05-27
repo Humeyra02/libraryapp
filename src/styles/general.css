@@ -15,8 +15,8 @@ body{
 .headerBgLight{
     Background-color: rgb(255, 196, 0);
 }
-.buttonPurple{
-    Background-color: rgb(122, 12, 122);
+.buttonWhite{
+    Background-color: rgb(214, 163, 214);
     Outline: none;
 }
 .buttonOrangered{
@@ -36,9 +36,24 @@ label{
 
 .input{
     Background-color: rgba(157, 127, 255, 0.504);
-
 }
 
 table{
-    Font-size: 10px;
+    Font-size: 12px;
+}
+
+.light-theme{
+    Background-color: rgb(213, 236, 236);
+}
+
+.dark-theme{
+    Background-color: rgb(0, 0, 0);
+}
+
+.category-light{
+    Color:black
+}
+
+.category-dark{
+    Color:rgb(0, 0, 0)
 }

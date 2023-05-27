@@ -9,11 +9,10 @@ import night from '../assets/moon.gif'
 const Header = () => {
     const dispacth = useDispatch()
     const { themeState, booksState, categoriesState } = useSelector(state => state)
-    console.log(booksState);
-    console.log(themeState);
+
     return (
-        <nav className={`navbar navbar-expand-sm navbar-dark ${themeState === "light" ? "headerBgLight" : "headerBgDark"}`}>
-            <div className="container-fluid d-flex justify-items-center align-content-center">
+        <nav className={`navbar navbar-expand-sm ${themeState === "light" ? "light-theme navbar-light" : "dark-theme navbar-dark"}`}>
+            <div className="container-my-3 d-flex justify-items-center align-content-center">
                 <Link className="navbar-brand" to={"/"}>
                     Library
                 </Link>
@@ -26,21 +25,34 @@ const Header = () => {
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={"/categories"}>
-                                Kategory islemleri
+                            <Link className="nav-link active d-flex justify-content-center align-items-center"
+                                style={{ fontSize: "17px" }}
+                                aria-current="page" to={"/categories"}>
+                                Category Operations
                             </Link>
 
                         </li>
 
-                        <a style={{ padding: 0, margin: 0 }}>
-                            <p style={{ color: "white", padding: 0 }} >
+                        <div style={{ padding: 0, margin: 0 }}>
+                            <p
+                                className={`
+                                ${themeState === "light" ? " category-light " : " category-dark "}`}
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    paddingLeft: "30px",
+                                    paddingRight: "30px",
+                                    backgroundColor: "white",
+                                    borderRadius: "10px"
+                                }} >
                                 Toplam Kitap Sayisi:_
                                 {booksState.books.length}
                                 <br />
                                 Toplam Kategori Sayisi:_
                                 {categoriesState.categories.length}
                             </p>
-                        </a>
+                        </div>
                     </ul>
                 </div>
             </div>

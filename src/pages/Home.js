@@ -4,29 +4,40 @@ import Header from "../components/Header";
 import ListBooks from "../components/ListBooks";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import Logout from "../components/Logout";
 
 const Home = () => {
     const navigate = useNavigate()
-    const { themeState } = useSelector(state => state)
+    const { themeState, loginState } = useSelector(state => state)
+    console.log(loginState);
+
+    // useEffect(() => {
+    //     if (!loginState.success) navigate("/login")
+    // }, [])
+    // baska bir yontem ama kullanmadik cunku app.js sayfasinda routes bolumunde hallettik.
+    
+
     return (
         <div>
             <Header />
             <div className="container my-5">
                 <div style={{ minHeight: '100vh', borderRadius: "10px" }}
-                    className={themeState === "light" ? "bg-light" : "bg-dark"}>
+                    className={themeState === "light" ? "light-theme" : "dark-theme"}>
 
                     <div className="contanier my-5">
                         <div className="d-flex justify-content-end">
                             <Button
+                                className=" m-3 "
                                 onClick={() => navigate("/add-book")}
                                 type={themeState === "light" ? "warning" : "secondary"}
-                                text="kitap ekle"
+                                text="Add a Book !"
                             />
                         </div>
                         <ListBooks />
                     </div>
                 </div>
             </div>
+            <Logout/>
         </div>
     )
 }

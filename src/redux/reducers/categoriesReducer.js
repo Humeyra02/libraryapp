@@ -1,6 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 
-const initialState={
+const initialState = {
     pending: true,
     success: false,
     categories: [],
@@ -10,23 +10,23 @@ const initialState={
 
 // state ile ilgili bircok veri tutabiliriz. 
 
-const categoriesReducer=(state=initialState,action)=>{
+const categoriesReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.categoryActions.GET_CATEGORIES_START:
-            return{
+            return {
                 ...state,
                 pending: true
-            } 
+            }
         case actionTypes.categoryActions.GET_CATEGORIES_SUCCESS:
-            return{
-                ...state, 
+            return {
+                ...state,
                 pending: false,
-                success:true,
+                success: true,
                 error: false,
                 categories: action.payload
             }
         case actionTypes.categoryActions.GET_CATEGORIES_FAIL:
-            return{
+            return {
                 ...state,
                 pending: false,
                 success: false,
@@ -34,9 +34,33 @@ const categoriesReducer=(state=initialState,action)=>{
                 errorMessage: action.payload
             }
 
+        case actionTypes.categoryActions.ADD_CATEGORY: ;
+            return {
+                ...state,
+                categories: [...state.categories, action.payload]
+            }
+        case actionTypes.categoryActions.DELETE_CATEGORY:
+            let filteredCategories = state.categories.filter(item => item.id !== action.payload) // yani esit olan diziden cikmis oldu.
+            return{
+                ...state,
+                categories:filteredCategories
+            }
+        case actionTypes.categoryActions.EDIT_CATEGORY:
+            let tempArr = [] 
+            for(let i=0;i<state.categories.length;i++){
+                if(state.categories[i].id !== action.payload.id){
+                    tempArr.push(state.categories[i])
+                }else{
+                tempArr.push(action.payload)
+                }
+            }
+            return{
+                ...state,
+                categories: tempArr
+            }
         default:
             return state
-            //bunu sakin unutma
+        //bunu sakin unutma
     }
 }
 

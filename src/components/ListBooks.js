@@ -9,7 +9,6 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const ListBooks = () => {
     const { themeState } = useSelector(state => state) // theme state i direkt asagida digerlerini yanina ekleyebilirim
     const { booksState, categoriesState } =
@@ -34,7 +33,7 @@ const ListBooks = () => {
             .catch(err => { })
     }
     return (
-        <div>
+        <div >
             {
                 booksState.books.length === 0 && (
                     <div className="my-5 d-flex justify-content-center">
@@ -45,8 +44,8 @@ const ListBooks = () => {
                 )
             }
             {booksState.books.length > 0 && (
-                <div>
-                    <table className={`table table-success table-striped ${themeState === "light" ? ("table-light") : ("table-dark")}`}>
+                <div >
+                    <table className={`table table-striped ${themeState === "light" ? "table-red" : ("table-dark")}`}>
                         <thead>
                             <tr>
                                 <th scope="col">Sira No</th>
@@ -72,7 +71,7 @@ const ListBooks = () => {
                                                         onClick={()=>navigate(`/book-detail/${book.id}`)}
                                                         className={`btn-sm
                                                          ${themeState
-                                                                === 'light' ? 'buttonPurple' : 'buttonGreen'}`}
+                                                                === 'light' ? 'buttonWhite' : 'buttonGreen'}`}
                                                         text="Details" />
 
                                                     <Button

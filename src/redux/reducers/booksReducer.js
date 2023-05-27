@@ -46,7 +46,7 @@ const booksReducer = (state = initialState, action) => {
         // reducer bu sayede kitap eklemesi gerektiginde nasil eklemesi gerektigini biliyor
         case actionTypes.bookActions.DELETE_BOOK:
 
-            let filteredBooks = state.books.filter(item => item.id !== action.payload) // yani id si esit olmayani yeni sepete koymamis olacak
+            var filteredBooks = state.books.filter(item => item.id !== action.payload) // yani id si esit olmayani yeni sepete koymamis olacak
             return {
                 ...state,
                 books: filteredBooks
@@ -71,11 +71,18 @@ const booksReducer = (state = initialState, action) => {
                     tempArr.push(action.payload)
                 }
             }
-            return{
+            return {
                 ...state,
                 books: tempArr
             }
 
+        case actionTypes.bookActions.DELETE_BOOKS_AFTER_DELETE_CATEGORY:
+                // payload olarak category id si gelecek
+                var filteredBooks = state.books.filter(item => item.categoryId !== action.payload)
+                return{
+                    ...state,
+                    books: filteredBooks
+                }
         default:
             return state
     }
