@@ -47,3 +47,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ![](src/assets/libraryy.mp4)
 
+## Library app is created with using React,React-Redux, Html, CSS, Bootstrap.
+
