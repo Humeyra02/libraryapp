@@ -1,19 +1,11 @@
 import React, { useState } from "react";
-
 import Header from "../components/Header";
-
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useSelector } from "react-redux";
-
 import { upperFirstLetter } from "../utils/functions";
-
 import api from "../api/api";
-
 import urls from "../api/urls";
-
 import { useDispatch } from "react-redux";
-
 import actionTypes from "../redux/actions/actionTypes";
 
 // useParams ile url icindeki parametreleri okuyabiliyoruz
@@ -114,8 +106,8 @@ const EditCategory = () => {
         <div>
             
             <Header />
-            <div className="d-flex justify-content-center bg-primary">
-                <h2>EDIT CATEGORY</h2>
+            <div style={{backgroundColor:"purple", paddingTop:"5px", margin:"10px", borderRadius:"5px"}} className="d-flex justify-content-center">
+                <h2 style={{color:"white"}}>EDIT CATEGORY</h2>
             </div>
             <form onSubmit={handleSubmit} >
                 <div className="container my-5 w-50">

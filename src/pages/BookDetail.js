@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const BookDetail = () => {
 
-    const { booksState, categoriesState } = useSelector(state => state)
+    const { booksState, categoriesState, themeState } = useSelector(state => state)
 
 
     const { bookId } = useParams()
@@ -51,13 +51,14 @@ const BookDetail = () => {
         <div>
             <Header />
             <div style={{ color: "white" }} className="container my-5 ">
-                <div className=" container w-50"
-                    style={{
+                <div className={`container w-50  
+                ${themeState === "light" ? "a" : "b"} `}
+                    /**style={{
                         border: "2px solid",
                         borderRadius: "5px",
                         boxShadow: "0px 0px 10px 0px white",
                         backgroundColor: "rgba(255, 99, 71, 0.6)"
-                    }}>
+                    }}**/>
                     <h5 style={{
                         position: "relative",
                         display: "flex",
@@ -77,15 +78,15 @@ const BookDetail = () => {
                     </div>
                     <div className="d-flex justify-content-between my-3">
                         <h5>Book Price : </h5>
-                        <h5>{myBook.price === "" ? "belirtilmedi" : myBook.price}</h5>
+                        <h5>{myBook.price === "" ? "Not Specified" : myBook.price}</h5>
                     </div>
                     <div className="d-flex justify-content-between my-3">
                         <h5>Publisher : </h5>
-                        <h5>{myBook.publisher === "" ? "belirtilmedi" : upperFirstLetter(myBook.publisher)}</h5>
+                        <h5>{myBook.publisher === "" ? "Not Specified" : upperFirstLetter(myBook.publisher)}</h5>
                     </div>
                     <div className="d-flex justify-content-between my-3">
                         <h5>ISBN : </h5>
-                        <h5>{myBook.isbn === "" ? "belirtilmedi" : myBook.isbn}</h5>
+                        <h5>{myBook.isbn === "" ? "Not Specified" : myBook.isbn}</h5>
                     </div>
                     <div className="d-flex justify-content-between my-3">
                         <h5>Category :  </h5>

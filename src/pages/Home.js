@@ -20,10 +20,10 @@ const Home = () => {
     return (
         <div>
             <Header />
+            <div style={{backgroundColor:"purple",color:"white", marginTop:"30px", marginBottom:0,padding:"3px", paddingTop:"10px"}}><h3 className="d-flex justify-content-center">List of Books</h3></div>
             <div className="container my-5">
                 <div style={{ minHeight: '100vh', borderRadius: "10px" }}
                     className={themeState === "light" ? "light-theme" : "dark-theme"}>
-
                     <div className="contanier my-5">
                         <div className="d-flex justify-content-end">
                             <Button

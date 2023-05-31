@@ -63,7 +63,7 @@ const AddBook = () => {
                         <label
                             htmlFor="title"
                             className="form-label label">
-                            Kitap Adi
+                            Book Name
                         </label>
                         <input
                             type="text"
@@ -80,7 +80,7 @@ const AddBook = () => {
 
                             htmlFor="author"
                             className="form-label label">
-                            Yazar Adi
+                            Author Naame
                         </label>
                         <input
                             type="text"
@@ -97,7 +97,7 @@ const AddBook = () => {
                         <label
                             htmlFor="publisher"
                             className="form-label label">
-                            Yayin Evi
+                            Publisher
                         </label>
                         <input
                             type="text"
@@ -152,7 +152,7 @@ const AddBook = () => {
                             }
                             className="form-select">
                             <option value="empty" >
-                                Kategori Secin
+                                Please select a category!
                             </option>
                             {
                                 categoriesState.categories.map((category) => (
@@ -166,7 +166,7 @@ const AddBook = () => {
                         </select>
                         <div className="d-flex justify-content-center my-5">
                             <button type="submit" className="btn btn-success w-50">
-                                Kaydet
+                                Submit
                             </button>
                         </div>
                     </div>

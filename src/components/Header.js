@@ -11,32 +11,28 @@ const Header = () => {
     const { themeState, booksState, categoriesState } = useSelector(state => state)
 
     return (
-        <nav className={`navbar navbar-expand-sm ${themeState === "light" ? "light-theme navbar-light" : "dark-theme navbar-dark"}`}>
+        <nav className={`navbar navbar-expand 
+        ${themeState === "light" ? "light-theme navbar-light" : "dark-theme navbar-dark"}`}>
             <div className="container-my-3 d-flex justify-items-center align-content-center">
                 <Link className="navbar-brand" to={"/"}>
-                    Library
+                    <p style={{ paddingLeft: "5px" }}>Library</p>
                 </Link>
-                <button
-                    className="navbar-toggler"
-                    type="button">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                
                 <div className="collapse navbar-collapse" >
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav ">
 
                         <li className="nav-item">
                             <Link className="nav-link active d-flex justify-content-center align-items-center"
-                                style={{ fontSize: "17px" }}
+                                style={{ fontSize: "17px", maxWidth: "100px" }}
                                 aria-current="page" to={"/categories"}>
                                 Category Operations
                             </Link>
-
                         </li>
-
-                        <div style={{ padding: 0, margin: 0 }}>
+                        <div style={{ padding: 0, margin: "10px", maxWidth: "300px" }}>
                             <p
                                 className={`
-                                ${themeState === "light" ? " category-light " : " category-dark "}`}
+                                ${themeState === "light" ? " category-light " :
+                                 " category-dark "}`}
                                 style={{
                                     display: "flex",
                                     justifyContent: "center",
@@ -44,20 +40,20 @@ const Header = () => {
                                     paddingLeft: "30px",
                                     paddingRight: "30px",
                                     backgroundColor: "white",
-                                    borderRadius: "10px"
+                                    borderRadius: "10px",
+                                    maxWidth:"300px"
                                 }} >
-                                Toplam Kitap Sayisi:_
-                                {booksState.books.length}
+                                Total Books: 
+                                "{booksState.books.length}"
                                 <br />
-                                Toplam Kategori Sayisi:_
-                                {categoriesState.categories.length}
+                                Total Categories:
+                                "{categoriesState.categories.length}"
                             </p>
                         </div>
                     </ul>
                 </div>
             </div>
-            <div style={{ position: "absolute", right: "20px" }}>
-
+            <div style={{ position: "absolute", right: "5px", top: "22px" }}>
                 {
                     themeState === "light" ?
                         (<button
@@ -67,10 +63,7 @@ const Header = () => {
                                     payload: "dark"
                                 })}
                             className="btn btn-sm ">
-                            <img style={{ width: '20px', height: '20px', marginRight: '10px' }} src={night}></img>
-                            <span>
-                                Dark
-                            </span>
+                            <img style={{ width: '30px', height: '30px', margin: 0, padding: 0 }} src={night}></img>
                         </button>)
                         : (<button
                             onClick={() => dispacth(
@@ -79,10 +72,8 @@ const Header = () => {
                                     payload: "light"
                                 })}
                             className="btn btn-sm ">
-                            <img style={{ width: '20px', height: '20px', marginRight: '10px' }} src={light}></img>
-                            <span style={{ color: "white" }}>
-                                Light
-                            </span>
+                            <img style={{ width: '30px', height: '30px', margin: 0, padding: 0 }} src={light}></img>
+
                         </button>)
                 }
             </div>

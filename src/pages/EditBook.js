@@ -78,7 +78,7 @@ const EditBook = () => {
                             style={{ color: "white" }}
                             htmlFor="title"
                             className="form-label">
-                            Kitap Adi
+                            Book Title
                         </label>
                         <input
                             type="text"
@@ -97,7 +97,7 @@ const EditBook = () => {
                             style={{ color: "white" }}
                             htmlFor="author"
                             className="form-label">
-                            Yazar Adi
+                            Author Name
                         </label>
                         <input
                             type="text"
@@ -116,7 +116,7 @@ const EditBook = () => {
                             style={{ color: "white" }}
                             htmlFor="publisher"
                             className="form-label">
-                            Yayin Evi
+                            Publisher
                         </label>
                         <input
                             type="text"
@@ -180,7 +180,7 @@ const EditBook = () => {
                             }
                             className="form-select">
                             <option value="empty" >
-                                Kategori Secin
+                                Please Select a Category !
                             </option>
                             {
                                 categoriesState.categories.map((category) => (
@@ -194,7 +194,7 @@ const EditBook = () => {
                         </select>
                         <div className="d-flex justify-content-center my-5">
                             <button type="submit" className="btn btn-success w-50">
-                                Kaydet
+                                Save
                             </button>
                         </div>
                     </div>

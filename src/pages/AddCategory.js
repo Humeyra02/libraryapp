@@ -80,7 +80,8 @@ const AddCategory = () => {
     return (
         <div>
             <Header />
-            <div className="d-flex justify-content-center bg-danger"><h1>ADD CATEGORY PAGE</h1></div>
+            <div style={{backgroundColor:"purple", paddingTop:"5px", margin:"10px", borderRadius:"5px"}} className="d-flex justify-content-center">
+                <h3 style={{color:"whitesmoke"}} >ADD A CATEGORY</h3></div>
             <form onSubmit={handleSubmit}>
                 <div className="container my-5 w-50">
                     <div className="mb-3">
@@ -103,7 +104,7 @@ const AddCategory = () => {
                     </div>
                     <div className="d-flex justify-content-center my-5">
                         <button type="submit" className="btn btn-success w-50">
-                            Kaydet
+                            Add
                         </button>
                     </div>
                 </div>

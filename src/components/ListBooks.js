@@ -38,7 +38,7 @@ const ListBooks = () => {
                 booksState.books.length === 0 && (
                     <div className="my-5 d-flex justify-content-center">
                         <div className="alert alert-danger text-center w-75" role="alert">
-                            Sistemde gosterilecek kitap kaydi yok.
+                            There is no book!!
                         </div>
                     </div>
                 )
@@ -48,10 +48,10 @@ const ListBooks = () => {
                     <table className={`table table-striped ${themeState === "light" ? "table-red" : ("table-dark")}`}>
                         <thead>
                             <tr>
-                                <th scope="col">Sira No</th>
-                                <th scope="col">Kitap Adi</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Islemler</th>
+                                <th scope="col">S.N.</th>
+                                <th scope="col">Book Title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Operations</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,7 +72,7 @@ const ListBooks = () => {
                                                         className={`btn-sm
                                                          ${themeState
                                                                 === 'light' ? 'buttonWhite' : 'buttonGreen'}`}
-                                                        text="Details" />
+                                                        text="Details" /> 
 
                                                     <Button
                                                         onClick={() => {

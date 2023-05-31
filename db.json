@@ -2,8 +2,8 @@
   "books": [
     {
       "id": "1680955543920",
-      "title": "Ay Terapisi",
-      "author": "Mustafa Ulusoy",
+      "title": "Ay Terapisii",
+      "author": "Mustafa Ulusoyy",
       "publisher": "",
       "price": "9",
       "isbn": "0000000000",
@@ -35,32 +35,45 @@
       "price": "3",
       "isbn": "xxxxxxxxxxxxxx",
       "categoryId": "3"
+    },
+    {
+      "id": "1685542216354",
+      "title": "Sefiller",
+      "author": "Victor Huge",
+      "publisher": "",
+      "price": "20",
+      "isbn": "",
+      "categoryId": "1"
     }
   ],
   "categories": [
     {
       "id": "1",
-      "name": "roman"
+      "name": "Novell"
     },
     {
       "id": "2",
-      "name": "hikaye"
+      "name": "Story"
     },
     {
       "id": "3",
-      "name": "deneme"
+      "name": "Essay"
     },
     {
       "id": "4",
-      "name": "dini"
+      "name": "Religious"
     },
     {
       "id": "1683036139743",
-      "name": "bilim"
+      "name": "Science"
     },
     {
       "id": "1683388410068",
-      "name": "felsefe"
+      "name": "Philosophy"
+    },
+    {
+      "id": "1685379199765",
+      "name": "Biography"
     }
   ]
 }
